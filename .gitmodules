@@ -3,7 +3,7 @@
 	url = git@github.com:tmux-plugins/tmux-sensible
 [submodule "tmux/plugins/catppuccin-tmux"]
 	path = tmux/plugins/catppuccin-tmux
-	url = git@github.com:huntlystrut/catpuccin-tmux.git
+	url = git@github.com:dreamsofcode-io/catppuccin-tmux.git
 [submodule "tmux/plugins/tmux-yank"]
 	path = tmux/plugins/tmux-yank
 	url = git@github.com:tmux-plugins/tmux-yank.git
