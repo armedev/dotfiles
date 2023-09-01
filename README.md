@@ -15,7 +15,7 @@ ln -s target-folder symnlink-name
 
 nvim custom has config files for the neovim with nvchad as a manager.
 
-### steps:
+#### steps:
 
 - install nvchad
 - in config folder cd into lua directory
@@ -26,7 +26,7 @@ nvim custom has config files for the neovim with nvchad as a manager.
 tmux has config files and plugins for the tmux to work seamless
 install tmux and symnlink this folder from the configs directory
 
-### steps:
+#### steps:
 
 - install tmux
 - create a symnlink with `tmux` name in config dir
@@ -36,7 +36,16 @@ install tmux and symnlink this folder from the configs directory
 wezterm is a terminal alternative built on rust. this folder contains configs for the wezterm
 install wezterm and symnlink this folder in config directory
 
-### steps:
+#### steps:
 
 - install wezterm
 - create a symnlink with `wezterm` name in config dir
+
+## zsh
+
+zsh is the shell which is using oh-my-zsh
+
+#### steps:
+
+- all the zsh files are the necessary
+- create the symnlinks to the files from `$HOME` dir
