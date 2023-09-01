@@ -1,0 +1,15 @@
+[submodule "tmux/plugins/tmux-sensible"]
+	path = tmux/plugins/tmux-sensible
+	url = git@github.com:tmux-plugins/tmux-sensible
+[submodule "tmux/plugins/catppuccin-tmux"]
+	path = tmux/plugins/catppuccin-tmux
+	url = git@github.com:huntlystrut/catpuccin-tmux.git
+[submodule "tmux/plugins/tmux-yank"]
+	path = tmux/plugins/tmux-yank
+	url = git@github.com:tmux-plugins/tmux-yank.git
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
+	url = git@github.com:tmux-plugins/tpm.git
+[submodule "tmux/plugins/vim-tmux-navigator"]
+	path = tmux/plugins/vim-tmux-navigator
+	url = git@github.com:christoomey/vim-tmux-navigator.git
