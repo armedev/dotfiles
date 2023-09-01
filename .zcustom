@@ -1,0 +1,6 @@
+export PATH="$PATH:$HOME/applications3party/flutter/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/scripts"
+
+if [ -z "$TMUX" ]; then tmux attach -t default || tmux new -s default
+fi
