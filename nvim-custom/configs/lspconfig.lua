@@ -36,7 +36,7 @@ lspconfig.tsserver.setup {
   cmd = { "typescript-language-server", "--stdio" }
 }
 
-local servers = { "html", "cssls", "docker_compose_language_service", "graphql", "jsonls", "yamlls","jedi_language_server"}
+local servers = { "html", "tailwindcss", "cssls", "docker_compose_language_service", "graphql", "jsonls", "yamlls","jedi_language_server"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
