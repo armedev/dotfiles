@@ -2,5 +2,12 @@ export PATH="$PATH:$HOME/applications3party/flutter/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/scripts"
 
+# bun completions
+[ -s "/Users/armedev/.bun/_bun" ] && source "/Users/armedev/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 if [ -z "$TMUX" ]; then tmux attach -t default || tmux new -s default
 fi
