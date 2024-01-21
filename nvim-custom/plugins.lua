@@ -25,6 +25,18 @@ local plugins = {
       "christoomey/vim-tmux-navigator",
       lazy = false
     },-- Lua
+    {
+      "nvim-telescope/telescope.nvim",
+      opts = require("custom.configs.telescope")
+    },
+    {
+      "ThePrimeagen/harpoon",
+      branch = "harpoon2",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      config = function ()
+        require("custom.configs.harpoon")
+      end
+    }
  }
 
 return plugins
