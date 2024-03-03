@@ -44,6 +44,7 @@ local M = {
       ["qo"] = { "<cmd> copen<CR>","Quickfix list open" },
       ["qn"] = { "<cmd> cn<CR>","Quickfix list next" },
       ["qp"] = { "<cmd> cp<CR>","Quickfix list prev" },
+      ["<leader>G"] = {"<cmd> Git <CR>", "Open fugititve git"},
     },
   },
   telescope = {

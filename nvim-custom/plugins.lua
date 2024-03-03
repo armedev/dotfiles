@@ -36,7 +36,11 @@ local plugins = {
       config = function ()
         require("custom.configs.harpoon")
       end
-    }
+    },
+  {
+    "tpope/vim-fugitive",
+    lazy = false
+  }
  }
 
 return plugins
