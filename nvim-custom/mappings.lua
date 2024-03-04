@@ -41,9 +41,9 @@ local M = {
       },
 
       -- quickfix list
-      ["qo"] = { "<cmd> copen<CR>","Quickfix list open" },
-      ["qn"] = { "<cmd> cn<CR>","Quickfix list next" },
-      ["qp"] = { "<cmd> cp<CR>","Quickfix list prev" },
+      ["<leader>lo"] = { "<cmd> copen<CR>","Quickfix list open" },
+      ["]]"] = { "<cmd> cn<CR>","Quickfix list next" },
+      ["[["] = { "<cmd> cp<CR>","Quickfix list prev" },
       ["<leader>G"] = {"<cmd> Git <CR>", "Open fugititve git"},
     },
   },
