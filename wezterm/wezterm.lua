@@ -7,6 +7,6 @@ config.set_environment_variables = {
 }
 config.color_scheme = "Catppuccin Mocha"
 config.font = wezterm.font "FiraCode Nerd Font"
-config.font_size = 14
+config.font_size = 10.5
 
 return config
