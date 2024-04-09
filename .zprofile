@@ -15,3 +15,6 @@ fi
 if [ -f '/Users/armedev/applications3party/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/armedev/applications3party/google-cloud-sdk/completion.zsh.inc';
 fi
 
+
+# Added by OrbStack: command-line tools and integration
+[ -s "~/.orbstack/shell/init.zsh" ] && source ~/.orbstack/shell/init.zsh 2>/dev/null || :
