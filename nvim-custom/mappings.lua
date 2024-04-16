@@ -45,6 +45,7 @@ local M = {
       ["]]"] = { "<cmd> cn<CR>","Quickfix list next" },
       ["[["] = { "<cmd> cp<CR>","Quickfix list prev" },
       ["<leader>G"] = {"<cmd> Git <CR>", "Open fugititve git"},
+      ["<leader>X"] = {"<cmd> %bd <CR>", "Close All open buffer"},
     },
   },
   telescope = {
