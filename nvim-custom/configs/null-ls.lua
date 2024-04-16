@@ -7,10 +7,11 @@ local codeactions = null_ls.builtins.code_actions
 local sources = {
   formatting.prettierd,
   formatting.black,
-  formatting.rustywind,
+  formatting.rustywind, -- for tailwind classes
   lint.textlint,
   lint.stylelint,
-  codeactions.xo,
+  lint.eslint_d,
+  codeactions.eslint_d
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
