@@ -8,6 +8,8 @@ local sources = {
   formatting.prettierd,
   formatting.black,
   formatting.rustywind, -- for tailwind classes
+  formatting.gofumpt,
+  formatting.goimports_reviser,
   lint.textlint,
   lint.stylelint,
   lint.eslint_d,
