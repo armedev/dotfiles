@@ -10,5 +10,8 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
+#go path
+export PATH="$(go env GOPATH)/bin:$PATH"
+
 if [ -z "$TMUX" ]; then tmux attach -t default || tmux new -s default
 fi
