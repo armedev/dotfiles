@@ -11,15 +11,23 @@ the term .dotfiles is a folder in the $HOME directory.
 ln -s target-folder symnlink-name
 ```
 
-## nvim-custom
+## nvim
 
-nvim custom has config files for the neovim with nvchad as a manager.
+nvim is a backup of nvchad 
 
 #### steps:
 
-- install nvchad
-- in config folder cd into lua directory
-- create a symnlink with `custom` as name to this folder
+- create a symlink of this directory in `$HOME/.config`
+- cd into `nvim/lua` directory
+- create a symnlink with `custom` as name to the `nvim-custom` for custom configs
+
+```bash
+ln -s target-folder symnlink-name
+```
+
+## nvim-custom
+
+this has config files neovim.
 
 ## tmux
 
