@@ -66,7 +66,7 @@ lspconfig.dartls.setup{
 
 -- all other lsps
 
-local servers = { "html", "tailwindcss", "cssls", "docker_compose_language_service", "graphql", "jsonls", "yamlls","jedi_language_server", "bashls"}
+local servers = { "html", "tailwindcss", "cssls", "docker_compose_language_service", "graphql", "jsonls", "yamlls","jedi_language_server", "bashls", "zls"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
