@@ -13,5 +13,9 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 #go path
 export PATH="$(go env GOPATH)/bin:$PATH"
 
-if [ -z "$TMUX" ]; then tmux attach -t default || tmux new -s default
+#fvm path
+#
+export PATH=$PATH:"$HOME/fvm/default/bin"
+
+if [ -z "$TMUX" ]; then tmux new-session -A -s default
 fi
