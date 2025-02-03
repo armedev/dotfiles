@@ -18,3 +18,8 @@ fi
 
 # Added by OrbStack: command-line tools and integration
 [ -s "~/.orbstack/shell/init.zsh" ] && source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/monster/.dart-cli-completion/zsh-config.zsh ]] && . /Users/monster/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]

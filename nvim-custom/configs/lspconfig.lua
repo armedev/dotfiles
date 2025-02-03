@@ -34,11 +34,16 @@ lspconfig.gopls.setup {
   },
 }
 
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
   on_attach = on_attach,
   capabilities=capabilities,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-  cmd = { "typescript-language-server", "--stdio" }
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.jsx" },
+  cmd = { "typescript-language-server", "--stdio" },
+  settings = {
+    implicitProjectConfiguration = {
+      checkJs = true
+    },
+  }
 }
 
 -- dart lsp
