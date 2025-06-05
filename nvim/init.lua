@@ -1,21 +1,42 @@
-require "core"
+require 'keymaps'
+require 'options'
+require 'aucommands'
+local plugins = require 'plugins'
 
-local custom_init_path = vim.api.nvim_get_runtime_file("lua/custom/init.lua", false)[1]
-
-if custom_init_path then
-  dofile(custom_init_path)
+-- [[ Install `lazy.nvim` plugin manager ]]
+--    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+  if vim.v.shell_error ~= 0 then
+    error('Error cloning lazy.nvim:\n' .. out)
+  end
 end
 
-require("core.utils").load_mappings()
+---@type vim.Option
+local rtp = vim.opt.rtp
+rtp:prepend(lazypath)
 
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+require('lazy').setup(plugins, {
+  ui = {
+    icons = vim.g.have_nerd_font and {} or {
+      cmd = '⌘',
+      config = '🛠',
+      event = '📅',
+      ft = '📂',
+      init = '⚙',
+      keys = '🗝',
+      plugin = '🔌',
+      runtime = '💻',
+      require = '🌙',
+      source = '📄',
+      start = '🚀',
+      task = '📌',
+      lazy = '💤 ',
+    },
+  },
+})
 
--- bootstrap lazy.nvim!
-if not vim.loop.fs_stat(lazypath) then
-  require("core.bootstrap").gen_chadrc_template()
-  require("core.bootstrap").lazy(lazypath)
-end
-
-dofile(vim.g.base46_cache .. "defaults")
-vim.opt.rtp:prepend(lazypath)
-require "plugins"
+-- The line beneath this is called `modeline` which overrides file processing for this file. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et

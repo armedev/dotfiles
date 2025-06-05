@@ -1,9 +1,6 @@
-plugin
-custom
-spell
-ftplugin
-syntax
-coc-settings.json
+tags
+test.sh
 .luarc.json
-lazy-lock.json
-after
+nvim
+
+spell/
