@@ -1,4 +1,4 @@
-require 'keymaps'
+-- options first
 require 'options'
 require 'aucommands'
 local plugins = require 'plugins'
@@ -37,6 +37,8 @@ require('lazy').setup(plugins, {
     },
   },
 })
+-- keymaps last
+require 'keymaps'
 
 -- The line beneath this is called `modeline` which overrides file processing for this file. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
