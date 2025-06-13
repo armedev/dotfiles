@@ -74,14 +74,16 @@ map('n', '<leader>f', function()
 end, { desc = '[F]ormat buffer' })
 
 -- MISC
-map('n', '<leader>lo', '<cmd> copen<CR>', { desc = 'Quickfix list open' })
+map('n', '<leader>lo', '<cmd>copen<CR>', { desc = 'Quickfix list open' })
 map('n', ']]', '<cmd> cn<CR>', { desc = 'Quickfix list next' })
 map('n', '[[', '<cmd> cp<CR>', { desc = 'Quickfix list prev' })
 map('n', '<leader>X', '<cmd>%bd<CR>', { desc = 'Close All open buffer' })
+map('n', '<leader>x', '<cmd>NvimTreeClose<CR> <cmd>bd<CR>', { desc = 'Close open buffer' })
 map('n', '<leader>/', 'gcc', { desc = 'toggle comment', remap = true })
 map('v', '<leader>/', 'gc', { desc = 'toggle comment', remap = true })
 map('n', '<Esc>', ':noh<CR>')
 map('n', '<C-s>', '<cmd>w<CR>', { desc = 'general save file' })
+map('n', '<C-c>', '<cmd> %y+ <CR>', { desc = 'Copy whole file' })
 map('n', '<leader>b', '<cmd>enew<CR>', { desc = 'buffer new' })
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 -- TIP: Disable arrow keys in normal mode
