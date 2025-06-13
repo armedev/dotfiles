@@ -2,9 +2,6 @@ export PATH="$PATH:$HOME/applications3party/flutter/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/scripts"
 
-# bun completions
-[ -s "/Users/armedev/.bun/_bun" ] && source "/Users/armedev/.bun/_bun"
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
@@ -14,8 +11,7 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="$(go env GOPATH)/bin:$PATH"
 
 #fvm path
-#
 export PATH=$PATH:"$HOME/fvm/default/bin"
 
-if [ -z "$TMUX" ]; then tmux new-session -A -s default
-fi
+
+export NVM_DIR="$HOME/.nvm"
