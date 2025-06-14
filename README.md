@@ -1,59 +1,120 @@
-# .dotfiles
+# 🛠️ .dotfiles
 
-This repo consists of all the configuration files needed to get going
+This repository contains configuration files (dotfiles) to set up your development environment consistently across machines.
 
-the term .dotfiles is a folder in the $HOME directory.
+> **📌 Important:**
+> Clone this repository into your `$HOME` directory as `~/dotfiles` and use symbolic links to activate each config.
 
-> [!important]
-> clone this repo in home directory and use symlinks to link the files to configs
+---
 
-```bash
-ln -s target-folder symnlink-name
-```
-
-## nvim
-
-nvim is a backup of nvchad 
-
-#### steps:
-
-- create a symlink of this directory in `$HOME/.config`
-- cd into `nvim/lua` directory
-- create a symnlink with `custom` as name to the `nvim-custom` for custom configs
+## 🔗 How to Link
 
 ```bash
-ln -s target-folder symnlink-name
+ln -s <source> <target>
+# Example:
+ln -s ~/dotfiles/.zshrc ~/.zshrc
 ```
 
-## nvim-custom
+You can automate the entire setup using the `setup-machine` script from a companion [scripts](https://github.com/armedev/scripts) repo.
 
-this has config files neovim.
+---
 
-## tmux
+## 📦 Components
 
-tmux has config files and plugins for the tmux to work seamless
-install tmux and symnlink this folder from the configs directory
+### 🧠 Neovim (`nvim`)
 
-#### steps:
+* Kickstarted from [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
+* Located in: `dotfiles/nvim`
 
-- install tmux
-- create a symnlink with `tmux` name in config dir
+**Steps:**
 
-## wezterm
+```bash
+ln -s ~/dotfiles/nvim ~/.config/nvim
+```
 
-wezterm is a terminal alternative built on rust. this folder contains configs for the wezterm
-install wezterm and symnlink this folder in config directory
+---
 
-#### steps:
+### 🔀 Hyprland (`hypr`)
 
-- install wezterm
-- create a symnlink with `wezterm` name in config dir
+* A Wayland compositor, commonly used on Arch Linux btw
+* Located in: `dotfiles/hypr`
 
-## zsh
+**Steps:**
 
-zsh is the shell which is using oh-my-zsh
+```bash
+ln -s ~/dotfiles/hypr ~/.config/hypr
+```
 
-#### steps:
+---
 
-- all the zsh files are the necessary
-- create the symnlinks to the files from `$HOME` dir
+### 📿 Tmux (`tmux`)
+
+* Terminal multiplexer with custom config and [TPM](https://github.com/tmux-plugins/tpm) plugin manager
+* Located in: `dotfiles/tmux`
+
+**Steps:**
+
+```bash
+# Ensure tmux is installed
+ln -s ~/dotfiles/tmux ~/.config/tmux
+```
+
+---
+
+### 💻 WezTerm (wezterm)
+
+* GPU-accelerated terminal emulator written in Rust
+* Located in: `dotfiles/wezterm`
+
+**Steps:**
+
+```bash
+# Ensure wezterm is installed
+ln -s ~/dotfiles/wezterm ~/.config/wezterm
+```
+
+---
+
+### 👚 Zsh
+
+* Z shell setup using `oh-my-zsh` and custom dotfiles
+* Files:
+
+  * `.zshrc`
+  * `.zprofile`
+  * `.zshenv`
+  * `.zexports`
+
+**Steps:**
+
+```bash
+ln -s ~/dotfiles/.zshrc ~/.zshrc
+ln -s ~/dotfiles/.zprofile ~/.zprofile
+ln -s ~/dotfiles/.zshenv ~/.zshenv
+ln -s ~/dotfiles/.zexports ~/.zexports
+```
+
+---
+
+## ⚙️ Automated Setup (Optional)
+
+You can automate the linking process using a setup script:
+
+```bash
+git clone https://github.com/armedev/scripts ~/scripts
+bash ~/scripts/setup-machine
+```
+
+The script supports flags like `--dry-run`, `--force`, and `--with-hypr`.
+
+---
+
+## 📜 License
+
+MIT License. Use freely, modify responsibly. Contributions welcome.
+
+---
+
+## 🙌 Contributing
+
+Feel free to fork and PR improvements or open issues if you have suggestions or bugs to report.
