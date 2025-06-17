@@ -5,9 +5,11 @@ return {
 
     config = function()
       local lint = require 'lint'
+      vim.env.ESLINT_D_PPID = vim.fn.getpid()
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
-        js = { 'eslint_d' },
+        javascript = { 'eslint_d' },
+        typescript = { 'eslint_d' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,

@@ -37,6 +37,9 @@ end, { desc = '[S]earch [K]eymaps' })
 map('n', '<leader>sf', function()
   require('telescope.builtin').find_files()
 end, { desc = '[S]earch [F]iles' })
+map('n', '<leader>ff', function()
+  require('telescope.builtin').find_files()
+end, { desc = '[S]earch [F]iles' })
 map('n', '<leader>ss', function()
   require('telescope.builtin').builtin()
 end, { desc = '[S]earch [S]elect Telescope' })
@@ -68,10 +71,18 @@ map('n', '<leader>s/', function()
   }
 end, { desc = '[S]earch [/] in Open Files' })
 
---conform
+-- conform
 map('n', '<leader>f', function()
   require('conform').format { async = true, lsp_format = 'fallback' }
 end, { desc = '[F]ormat buffer' })
+
+-- nvim-lint
+map('n', '<leader>l', function()
+  if vim.bo.modifiable then
+    require('lint').try_lint()
+    print('Linted: ' .. vim.fn.expand '%')
+  end
+end)
 
 -- MISC
 map('n', '<leader>lo', '<cmd>copen<CR>', { desc = 'Quickfix list open' })
