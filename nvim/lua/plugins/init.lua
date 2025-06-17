@@ -7,7 +7,6 @@ return {
   require 'plugins.telescope',
   require 'plugins.lspconfig',
   require 'plugins.conform',
-  require 'plugins.blink',
   require 'plugins.treesitter',
   require 'plugins.lualine',
   require 'plugins.debug',
