@@ -1,7 +1,3 @@
-source $HOME/.zexports
-
-[ -s "$HOME/.zlocal" ] && source $HOME/.zlocal || : # This loads .zlocal if any
-
 [ -s "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)" || : # This loads brew
 [ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env" || : # This loads cargo
 
@@ -22,3 +18,7 @@ fi
 
 [[ -f /Users/monster/.dart-cli-completion/zsh-config.zsh ]] && . /Users/monster/.dart-cli-completion/zsh-config.zsh || : # This loads dart
 
+source $HOME/.zexports
+source $HOME/.zau
+
+[ -s "$HOME/.zlocal" ] && source $HOME/.zlocal || : # This loads .zlocal if any

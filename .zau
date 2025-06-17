@@ -1,7 +1,7 @@
 # start tmux only on pseudo terminals and avoid tty and interactive shells
 if [[ -z "$TMUX" && "$-" == *i* ]]; then
     tty=$(tty)
-    if [[ "$tty" == /dev/pts/* ]]; then
+    if ! [[ "$tty" =~ ^/dev/tty[0-9]+$ ]]; then
       tmux new-session -A -s default
     fi
 fi
