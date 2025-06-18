@@ -23,8 +23,7 @@ local getServers = function()
       },
     },
     ts_ls = {
-      filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx', 'javascript', 'javascriptreact', 'javascript.jsx' },
-      cmd = { 'typescript-language-server', '--stdio' },
+      root_dir = require('lspconfig').util.root_pattern 'package.json',
       settings = {
         implicitProjectConfiguration = {
           checkJs = true,
