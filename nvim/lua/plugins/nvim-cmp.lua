@@ -1,16 +1,3 @@
-local function border(hl_name)
-  return {
-    { '╭', hl_name },
-    { '─', hl_name },
-    { '╮', hl_name },
-    { '│', hl_name },
-    { '╯', hl_name },
-    { '─', hl_name },
-    { '╰', hl_name },
-    { '│', hl_name },
-  }
-end
-
 local icons = {
   Text = '󰉿',
   Variable = '󰜢',
@@ -20,6 +7,10 @@ local icons = {
   Field = '',
   Property = '',
   Enum = '',
+  Class = '',
+  Method = '',
+  Module = '',
+  Array = '',
 }
 
 return {
@@ -82,7 +73,8 @@ return {
 
       formatting = {
         format = function(_, vim_item)
-          vim_item.kind = icons[vim_item.kind] .. ' ' .. vim_item.kind or vim_item.kind
+          local icon = icons[vim_item.kind]
+          vim_item.kind = (icon == nil and vim_item.kind) or (icon .. ' ' .. vim_item.kind)
           return vim_item
         end,
       },
