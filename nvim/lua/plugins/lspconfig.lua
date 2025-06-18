@@ -104,6 +104,9 @@ return {
         map('gO', require('telescope.builtin').lsp_document_symbols, 'Open Document Symbols')
         map('gW', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Open Workspace Symbols')
         map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
+        map('K', function()
+          vim.lsp.buf.hover { border = 'rounded', max_height = 25, max_width = 120 }
+        end, 'Hover doc')
 
         -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
         ---@param client vim.lsp.Client

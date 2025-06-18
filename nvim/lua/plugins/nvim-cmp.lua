@@ -1,3 +1,27 @@
+local function border(hl_name)
+  return {
+    { '╭', hl_name },
+    { '─', hl_name },
+    { '╮', hl_name },
+    { '│', hl_name },
+    { '╯', hl_name },
+    { '─', hl_name },
+    { '╰', hl_name },
+    { '│', hl_name },
+  }
+end
+
+local icons = {
+  Text = '󰉿',
+  Variable = '󰜢',
+  Snippet = '',
+  Function = '󰊕',
+  Keyword = '󰌋',
+  Field = '',
+  Property = '',
+  Enum = '',
+}
+
 return {
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
@@ -43,6 +67,25 @@ return {
 
     local options = {
       completion = { completeopt = 'menu,menuone' },
+
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
+      view = {
+        entries = {
+          name = 'custom',
+          selection_order = 'near_cursor',
+          follow_cursor = true,
+        },
+      },
+
+      formatting = {
+        format = function(_, vim_item)
+          vim_item.kind = icons[vim_item.kind] .. ' ' .. vim_item.kind or vim_item.kind
+          return vim_item
+        end,
+      },
 
       snippet = {
         expand = function(args)

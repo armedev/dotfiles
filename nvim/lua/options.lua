@@ -61,35 +61,19 @@ opt.listchars = { tab = '» ', trail = '·', nbsp = '·' }
 opt.fillchars = { eob = ' ' }
 opt.termguicolors = true
 
--- Style LSP floating windows with rounded visible borders
-local function style_float_windows()
-  local bg_color = '#1e222a' -- Dark background
-  local border_color = '#3e4452' -- Slightly lighter than bg for visible border
-  local text_color = '#c8d3f5'
-  local blend_value = 0 -- 0 = no transparency
-
-  vim.api.nvim_set_hl(0, 'NormalFloat', {
-    bg = bg_color,
-    fg = text_color,
-    blend = blend_value,
+--- HACK: Override `vim.lsp.util.stylize_markdown` to use Treesitter.
+---@param bufnr integer
+---@param contents string[]
+---@param opts table
+---@return string[]
+---@diagnostic disable-next-line: duplicate-set-field
+vim.lsp.util.stylize_markdown = function(bufnr, contents, opts)
+  contents = vim.lsp.util._normalize_markdown(contents, {
+    width = vim.lsp.util._make_floating_popup_size(contents, opts),
   })
+  vim.bo[bufnr].filetype = 'markdown'
+  vim.treesitter.start(bufnr)
+  vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, contents)
 
-  vim.api.nvim_set_hl(0, 'FloatBorder', {
-    bg = bg_color,
-    fg = border_color,
-    blend = blend_value,
-  })
+  return contents
 end
-
--- Apply rounded border style to LSP handlers
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
-
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
-
--- Apply styles on colorscheme change and on startup
-vim.api.nvim_create_autocmd('ColorScheme', {
-  pattern = '*',
-  callback = style_float_windows,
-})
-
-style_float_windows()
