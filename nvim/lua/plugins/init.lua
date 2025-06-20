@@ -16,6 +16,7 @@ return {
   require 'plugins.gitsigns',
   require 'plugins.harpoon',
   require 'plugins.catpuccin',
+  require 'plugins.indent-blankline',
 
   {
     'folke/lazydev.nvim',
@@ -31,17 +32,5 @@ return {
   {
     'christoomey/vim-tmux-navigator',
     lazy = false,
-  },
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    event = 'User FilePost',
-    main = 'ibl',
-    ---@module "ibl"
-    ---@type ibl.config
-    opts = {
-      scope = {
-        enabled = false,
-      },
-    },
   },
 }
