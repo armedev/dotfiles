@@ -29,11 +29,19 @@ return {
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = true } },
   {
-    'lukas-reineke/indent-blankline.nvim',
-    event = 'User FilePost',
-  },
-  {
     'christoomey/vim-tmux-navigator',
     lazy = false,
+  },
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    event = 'User FilePost',
+    main = 'ibl',
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {
+      scope = {
+        enabled = false,
+      },
+    },
   },
 }
