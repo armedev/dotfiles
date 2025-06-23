@@ -11,6 +11,7 @@ local getServers = function()
   return {
     gopls = {},
     jedi_language_server = {},
+    jsonls = {},
     rust_analyzer = {
       filetypes = { 'rust' },
       root_dir = require('lspconfig').util.root_pattern 'Cargo.toml',
