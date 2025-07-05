@@ -34,21 +34,36 @@ end, { desc = '[S]earch [H]elp' })
 map('n', '<leader>sk', function()
   require('telescope.builtin').keymaps()
 end, { desc = '[S]earch [K]eymaps' })
+
 map('n', '<leader>sf', function()
-  require('telescope.builtin').find_files()
+  require('telescope.builtin').find_files { glob_pattern = '!*.min.js*' }
 end, { desc = '[S]earch [F]iles' })
 map('n', '<leader>ff', function()
-  require('telescope.builtin').find_files()
+  require('telescope.builtin').find_files { glob_pattern = '!*.min.js*' }
 end, { desc = '[S]earch [F]iles' })
+
+map('n', '<leader>sa', function()
+  require('telescope.builtin').find_files { no_ignore = true }
+end, { desc = '[S]earch [A]ll Files' })
+map('n', '<leader>fa', function()
+  require('telescope.builtin').find_files { no_ignore = true }
+end, { desc = '[S]earch [A]ll Files' })
+
 map('n', '<leader>ss', function()
   require('telescope.builtin').builtin()
 end, { desc = '[S]earch [S]elect Telescope' })
+
 map('n', '<leader>sw', function()
-  require('telescope.builtin').grep_string()
+  require('telescope.builtin').grep_string { additional_args = { '--glob=!*.min.js*' } }
 end, { desc = '[S]earch current [W]ord' })
+map('v', '<leader>sw', function()
+  require('telescope.builtin').grep_string { additional_args = { '--glob=!*.min.js*' } }
+end, { desc = '[S]earch current [W]ord' })
+
 map('n', '<leader>sg', function()
-  require('telescope.builtin').live_grep()
+  require('telescope.builtin').live_grep { glob_pattern = '!*.min.js*' }
 end, { desc = '[S]earch by [G]rep' })
+
 map('n', '<leader>sd', function()
   require('telescope.builtin').diagnostics()
 end, { desc = '[S]earch [D]iagnostics' })

@@ -15,6 +15,14 @@ return {
   },
   config = function()
     require('telescope').setup {
+      defaults = {
+        mappings = {
+          n = {
+            ['O'] = require('telescope.actions').cycle_history_next,
+            ['o'] = require('telescope.actions').cycle_history_prev,
+          },
+        },
+      },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
