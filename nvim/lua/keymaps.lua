@@ -110,6 +110,7 @@ map('v', '<leader>/', 'gc', { desc = 'toggle comment', remap = true })
 map('n', '<Esc>', ':noh<CR>')
 map('n', '<C-s>', '<cmd>w<CR>', { desc = 'general save file' })
 map('n', '<C-c>', '<cmd> %y+ <CR>', { desc = 'Copy whole file' })
+map('n', '<C-a>', 'ggVG', { desc = 'Visual select whole file' })
 map('n', '<leader>b', '<cmd>enew<CR>', { desc = 'buffer new' })
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 -- TIP: Disable arrow keys in normal mode
