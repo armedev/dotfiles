@@ -23,6 +23,23 @@ return {
           },
         },
       },
+      pickers = {
+        lsp_references = {
+          initial_mode = 'normal',
+        },
+        lsp_implementations = {
+          initial_mode = 'normal',
+        },
+        lsp_definitions = {
+          initial_mode = 'normal',
+        },
+        lsp_document_symbols = {
+          initial_mode = 'normal',
+        },
+        lsp_type_definitions = {
+          initial_mode = 'normal',
+        },
+      },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
