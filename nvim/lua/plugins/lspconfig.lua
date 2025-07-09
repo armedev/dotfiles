@@ -98,10 +98,10 @@ return {
         end
 
         -- Keymaps
-        map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
-        map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
-        map('grr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-        map('gri', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+        map('<leader>ra', vim.lsp.buf.rename, '[R]en[a]me')
+        map('gca', vim.lsp.buf.code_action, '[G]oto [C]ode [A]ction', { 'n', 'x' })
+        map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+        map('gi', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
         map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
         map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
         map('gO', require('telescope.builtin').lsp_document_symbols, 'Open Document Symbols')
