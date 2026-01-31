@@ -13,5 +13,7 @@ export PATH="$(go env GOPATH)/bin:$PATH"
 #fvm path
 export PATH=$PATH:"$HOME/fvm/default/bin"
 
+#postgresql
+export PATH=$PATH:"/opt/homebrew/opt/postgresql@16/bin"
 
 export NVM_DIR="$HOME/.nvm"
