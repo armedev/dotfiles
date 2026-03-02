@@ -1,0 +1,13 @@
+{
+  "skill_sources": [
+    {
+      "path": "./skills",
+      "priority": 10
+    }
+  ],
+  "install_targets": {
+    "agents": true,
+    "cursor": false,
+    "claude": false
+  }
+}
