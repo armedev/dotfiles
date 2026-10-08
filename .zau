@@ -1,11 +1,20 @@
-# start tmux only on pseudo terminals and avoid tty and interactive shells
-if [[ -z "$TMUX" && "$-" == *i* ]]; then
-    tty=$(tty)
-    if ! [[ "$tty" =~ ^/dev/tty[0-9]+$ ]]; then
-      tmux new-session -A -s default
-    fi
-fi
+# ~/.zau
+# ---------------------------------------------------------------------------
+# "zsh auto": automatically attach to tmux on login.
+# Sourced from .zprofile, so it runs for LOGIN shells only.
+#
+# ssh-agent is intentionally NOT managed here. On macOS, launchd already runs
+# com.openssh.ssh-agent and exports SSH_AUTH_SOCK; starting another agent would
+# only leak duplicates. Key persistence is handled by ~/.ssh/config.
+# ---------------------------------------------------------------------------
 
-if [ "$SSH_AUTH_SOCK" = "" -a -x /usr/bin/ssh-agent ]; then
-  eval `/usr/bin/ssh-agent` > /dev/null || :
+# Attach to an existing "default" tmux session, or create one. Skipped when
+# already inside tmux, when the shell is not interactive, or on a bare console
+# TTY (/dev/tty1, ...) so logging into a physical console is not hijacked.
+if [[ -z "$TMUX" && "$-" == *i* ]]; then
+  _zau_tty="$(tty 2>/dev/null)"
+  if [[ ! "$_zau_tty" =~ ^/dev/tty[0-9]+$ ]]; then
+    tmux new-session -A -s default
+  fi
+  unset _zau_tty
 fi

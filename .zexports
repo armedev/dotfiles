@@ -1,29 +1,26 @@
-# Local binaries
-[ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
+# ~/.zexports
+# ---------------------------------------------------------------------------
+# Exported environment: PATH additions and environment variables.
+# Sourced from .zshenv, so it runs in EVERY zsh (login, interactive, tmux
+# panes, scripts). It is sourced AGAIN from .zprofile right after Homebrew's
+# `shellenv`, to keep these overrides ahead of Homebrew's defaults.
+# Keep it cheap — no tool initialization and no command substitutions that
+# spawn extra processes. It must be safe to run more than once.
+# ---------------------------------------------------------------------------
 
-# Custom scripts
-[ -d "$HOME/scripts" ] && export PATH="$HOME/scripts:$PATH"
-
-# Bun
+# Tool-specific variables (must be set before their PATH entries below).
 export BUN_INSTALL="$HOME/.bun"
-[ -d "$BUN_INSTALL/bin" ] && export PATH="$BUN_INSTALL/bin:$PATH"
+export NVM_DIR="$HOME/.nvm"   # nvm itself is loaded in .zprofile
 
-# Ruby (Homebrew)
-[ -d "/opt/homebrew/opt/ruby/bin" ] && export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-
-# Flutter
-[ -d "$HOME/applications3party/flutter/bin" ] && export PATH="$HOME/applications3party/flutter/bin:$PATH"
-
-# FVM (Flutter Version Manager)
-[ -d "$HOME/fvm/default/bin" ] && export PATH="$HOME/fvm/default/bin:$PATH"
-
-# Go binaries
-command -v go >/dev/null 2>&1 && export PATH="$(go env GOPATH)/bin:$PATH"
-
-# PostgreSQL 16 (Homebrew) - overrides macOS system postgres
-[ -d "/opt/homebrew/opt/postgresql@16/bin" ] && export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
-
-# NVM (Node Version Manager)
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+# Directories are listed highest-priority first — the first entry wins.
+path_prepend \
+  "$HOME/.local/bin"                                  \
+  "$HOME/scripts"                                     \
+  "$HOME/.opencode/bin"                               \
+  "$HOME/.cargo/bin"                                  \
+  "$HOME/go/bin"                                      \
+  "/opt/homebrew/opt/ruby/bin"                        \
+  "/opt/homebrew/opt/postgresql@16/bin"               \
+  "$HOME/applications3party/flutter/bin"              \
+  "$HOME/fvm/default/bin"                             \
+  "$BUN_INSTALL/bin"
