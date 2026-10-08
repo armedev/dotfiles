@@ -30,7 +30,6 @@ return { -- Highlight, edit, and navigate code
       'requirements',
       'rust',
       'ssh_config',
-      'tmux',
       'toml',
       'tsx',
       'typescript',
@@ -38,6 +37,7 @@ return { -- Highlight, edit, and navigate code
       'vimdoc',
       'xml',
       'yaml',
+      'astro',
     }
 
     local filetypes = vim.list_extend(vim.deepcopy(parsers), { 'jsonc' })

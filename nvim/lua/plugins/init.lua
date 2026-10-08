@@ -2,7 +2,8 @@ return {
   'NMAC427/guess-indent.nvim',
   'tpope/vim-fugitive',
 
-  require 'plugins.nvim-cmp',
+  -- require 'plugins.nvim-cmp',
+  require 'plugins.blink',
   require 'plugins.which-key',
   require 'plugins.telescope',
   require 'plugins.lspconfig',
@@ -17,6 +18,7 @@ return {
   require 'plugins.harpoon',
   require 'plugins.catpuccin',
   require 'plugins.indent-blankline',
+  require 'plugins.supermaven',
 
   {
     'folke/lazydev.nvim',
